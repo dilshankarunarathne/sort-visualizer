@@ -149,6 +149,30 @@
                 }, delay);
             }
 
+            function quickSort() {
+                var i = 0;
+                var j = 0;
+                var temp = 0;
+                var interval = setInterval(function() {
+                    if (i < arraySize) {
+                        if (j < arraySize) {
+                            if (array[j] < array[i]) {
+                                temp = array[j];
+                                array[j] = array[i];
+                                array[i] = temp;
+                            }
+                            j++;
+                        } else {
+                            i++;
+                            j = i;
+                        }
+                        drawArray();
+                    } else {
+                        clearInterval(interval);
+                    }
+                }, delay);
+            }
+
             initArray();
             drawArray();
         </script>
