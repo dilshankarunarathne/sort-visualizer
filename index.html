@@ -18,7 +18,7 @@
 
     <form>
         <div id="button-group">
-            <div id="control">
+            <div id="selector">
                 <input type="radio" id="bubble" name="algo">Bubble Sort
                 <input type="radio" id="insertion" name="algo">Insertion Sort
                 <input type="radio" id="merge" name="algo">Merge Sort
@@ -27,8 +27,10 @@
         
             <br>
             
-            <div id="selector">
-                <button id="bubbleSort" onclick="bubbleSort()">Show Bubble Sort</button>
+            <div id="control">
+                <button id="start" onclick="start()">Start</button>
+                <button id="pause" onclick="pause()">Pause</button>
+                <button id="reset" onclick="reset()">Reset</button>
             </div>
         </div>
     </form>
