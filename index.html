@@ -112,6 +112,43 @@
                 }, delay);
             }
 
+            function mergeSort() {
+                var i = 0;
+                var j = 0;
+                var k = 0;
+                var temp = [];
+                var interval = setInterval(function() {
+                    if (i < arraySize) {
+                        if (j < arraySize) {
+                            if (k < arraySize) {
+                                if (array[j] < array[k]) {
+                                    temp[i] = array[j];
+                                    j++;
+                                } else {
+                                    temp[i] = array[k];
+                                    k++;
+                                }
+                                i++;
+                            } else {
+                                temp[i] = array[j];
+                                i++;
+                                j++;
+                            }
+                        } else {
+                            temp[i] = array[k];
+                            i++;
+                            k++;
+                        }
+                        drawArray();
+                    } else {
+                        for (var i = 0; i < arraySize; i++) {
+                            array[i] = temp[i];
+                        }
+                        clearInterval(interval);
+                    }
+                }, delay);
+            }
+
             initArray();
             drawArray();
         </script>
