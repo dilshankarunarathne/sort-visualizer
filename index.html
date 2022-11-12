@@ -173,6 +173,28 @@
                 }, delay);
             }
 
+            function start() {
+                var radios = document.getElementsByName("algo");
+                for (var i = 0; i < radios.length; i++) {
+                    if (radios[i].checked) {
+                        switch (radios[i].value) {
+                            case "bubble":
+                                bubbleSort();
+                                break;
+                            case "insertion":
+                                insertionSort();
+                                break;
+                            case "merge":
+                                mergeSort();
+                                break;
+                            case "quick":
+                                quickSort();
+                                break;
+                        }
+                    }
+                }
+            }
+
             initArray();
             drawArray();
         </script>
