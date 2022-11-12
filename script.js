@@ -2,8 +2,8 @@ var canvas = document.getElementById("canvas");
 var ctx = canvas.getContext("2d");
 
 var array = [];
-var arraySize = 100;
-var arrayMax = 100;
+var arraySize = 10;
+var arrayMax = 10;
 var arrayMin = 1;
 
 var width = canvas.width;
