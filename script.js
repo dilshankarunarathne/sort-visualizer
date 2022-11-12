@@ -1,17 +1,55 @@
-// Get the canvas element
 var canvas = document.getElementById("canvas");
-// Get the canvas context
 var ctx = canvas.getContext("2d");
-// Set the canvas background color
-ctx.fillStyle = "#000000";
-ctx.fillRect(0, 0, canvas.width, canvas.height);
-// Set the canvas text color
-ctx.fillStyle = "#FFFFFF";
-// Set the canvas text font
-ctx.font = "20px Arial";
-// Set the canvas text alignment
-ctx.textAlign = "center";
-// Set the canvas text baseline
-ctx.textBaseline = "middle";
-// Set the canvas text position
-ctx.fillText("Sorting Visualized", canvas.width / 2, canvas.height / 2);
+
+var array = [];
+var arraySize = 100;
+var arrayMax = 100;
+var arrayMin = 1;
+
+var width = canvas.width;
+var height = canvas.height;
+
+var barWidth = width / arraySize;
+var barHeight = height / arrayMax;
+
+var delay = 1;
+
+function initArray() {
+    for (var i = 0; i < arraySize; i++) {
+        array[i] = Math.floor(Math.random() * (arrayMax - arrayMin + 1)) + arrayMin;
+    }
+}
+
+function drawArray() {
+    ctx.clearRect(0, 0, width, height);
+    for (var i = 0; i < arraySize; i++) {
+        ctx.fillRect(i * barWidth, height - array[i] * barHeight, barWidth, array[i] * barHeight);
+    }
+}
+
+function bubbleSort() {
+    var i = 0;
+    var j = 0;
+    var temp = 0;
+    var interval = setInterval(function() {
+        if (i < arraySize) {
+            if (j < arraySize - i - 1) {
+                if (array[j] > array[j + 1]) {
+                    temp = array[j];
+                    array[j] = array[j + 1];
+                    array[j + 1] = temp;
+                }
+                j++;
+            } else {
+                i++;
+                j = 0;
+            }
+            drawArray();
+        } else {
+            clearInterval(interval);
+        }
+    }, delay);
+}
+
+initArray();
+drawArray();
