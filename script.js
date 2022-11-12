@@ -2,8 +2,8 @@ var canvas = document.getElementById("canvas");
 var ctx = canvas.getContext("2d");
 
 var array = [];
-var arraySize = 10;
-var arrayMax = 10;
+var arraySize = 30;
+var arrayMax = 30;
 var arrayMin = 1;
 
 var width = canvas.width;
@@ -12,7 +12,7 @@ var height = canvas.height;
 var barWidth = width / arraySize;
 var barHeight = height / arrayMax;
 
-var delay = 1;
+var delay = 50;
 
 function initArray() {
     for (var i = 0; i < arraySize; i++) {
